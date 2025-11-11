@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   *::selection { 
-    background-color: ${({ theme }) => theme.colors.accent};
+    background-color: ${({ theme }) => theme.colors.accent1};
     color: ${({ theme }) => theme.colors.text};
   }
   

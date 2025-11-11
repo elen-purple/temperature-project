@@ -7,8 +7,12 @@ import { PetsButton } from "./PetsButton/PetsButton";
 import { Container } from "../Container/Container";
 import { Section, Title } from "./PetsSectionStyled";
 
+const REACT_APP_NEWS_API_KEY = "64a070b11f7e43fbbb4eba1796c6dc9d";
 const petsApi = axios.create({
   baseURL: "https://newsapi.org/v2",
+  headers: {
+    "X-Api-Key": REACT_APP_NEWS_API_KEY,
+  },
 });
 
 export const PetSection = () => {
@@ -21,7 +25,7 @@ export const PetSection = () => {
     setIsLoading(true);
     try {
       const request = await petsApi.get(
-        `/everything?q=pets&sortBy=popularity&apiKey=64a070b11f7e43fbbb4eba1796c6dc9d&pageSize=4&page=${page}`
+        `/everything?q=pets&sortBy=popularity&pageSize=4&page=${page}`
       );
       const array = [...articles, ...request.data.articles];
       setArticles(array);
