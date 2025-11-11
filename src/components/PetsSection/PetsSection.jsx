@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { PetsList } from "./PetsList/PetsList";
-import { PetsMessage } from "./PetsMessage/PetsMessage";
-import { PetsLoading } from "./PetsLoading/PetsLoading";
+import { Message } from "../common/Message/Message";
+import { Loading } from "../common/Loading/Loading";
 import { PetsButton } from "./PetsButton/PetsButton";
 import { Container } from "../Container/Container";
 import { Section, Title } from "./PetsSectionStyled";
 
-axios.defaults.baseURL = "https://newsapi.org/v2";
+const petsApi = axios.create({
+  baseURL: "https://newsapi.org/v2",
+});
 
 export const PetSection = () => {
   const [articles, setArticles] = useState([]);
@@ -18,7 +20,7 @@ export const PetSection = () => {
   const getArticles = async () => {
     setIsLoading(true);
     try {
-      const request = await axios.get(
+      const request = await petsApi.get(
         `/everything?q=pets&sortBy=popularity&apiKey=64a070b11f7e43fbbb4eba1796c6dc9d&pageSize=4&page=${page}`
       );
       const array = [...articles, ...request.data.articles];
@@ -47,9 +49,9 @@ export const PetSection = () => {
       <Container>
         <Title>Interacting with our pets</Title>
         {isLoading ? (
-          <PetsLoading />
+          <Loading />
         ) : error ? (
-          <PetsMessage text={"You have an error: " + error} />
+          <Message text={"You have an error: " + error} />
         ) : (
           <>
             <PetsList articles={articles} />

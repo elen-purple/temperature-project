@@ -1,6 +1,6 @@
 import { DNA } from "react-loader-spinner";
 
-export const PetsLoading = () => {
+export const Loading = () => {
   return (
     <DNA
       visible={true}
