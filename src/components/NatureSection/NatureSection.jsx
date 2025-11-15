@@ -1,4 +1,4 @@
-import { Container } from "../Container/Container";
+import { Container } from "../common/Container/Container";
 import { Section, Title } from "./NatureSectionStyled";
 import { NatureSlider } from "./NatureSlider/NatureSlider";
 

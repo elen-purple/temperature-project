@@ -45,6 +45,7 @@ export const NatureSlider = () => {
         <Message text={"You have an error: " + error} />
       ) : (
         <SwiperStyled
+          loop={true}
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}

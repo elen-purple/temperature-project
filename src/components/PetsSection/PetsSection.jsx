@@ -4,15 +4,10 @@ import { PetsList } from "./PetsList/PetsList";
 import { Message } from "../common/Message/Message";
 import { Loading } from "../common/Loading/Loading";
 import { PetsButton } from "./PetsButton/PetsButton";
-import { Container } from "../Container/Container";
+import { Container } from "../common/Container/Container";
 import { Section, Title } from "./PetsSectionStyled";
-
-const REACT_APP_NEWS_API_KEY = "64a070b11f7e43fbbb4eba1796c6dc9d";
 const petsApi = axios.create({
-  baseURL: "https://newsapi.org/v2",
-  headers: {
-    "X-Api-Key": REACT_APP_NEWS_API_KEY,
-  },
+  baseURL: "https://content.guardianapis.com",
 });
 
 export const PetSection = () => {
@@ -25,9 +20,9 @@ export const PetSection = () => {
     setIsLoading(true);
     try {
       const request = await petsApi.get(
-        `/everything?q=pets&sortBy=popularity&pageSize=4&page=${page}`
+        `/search?page=${page}&page-size=4&q=pets&api-key=b0e27067-6866-4cc3-9d2c-8fc536345c97`
       );
-      const array = [...articles, ...request.data.articles];
+      const array = [...articles, ...request.data.response.results];
       setArticles(array);
     } catch (e) {
       setError(e);
@@ -39,10 +34,6 @@ export const PetSection = () => {
   const changePage = () => {
     setPage(page + 1);
   };
-
-  useEffect(() => {
-    getArticles();
-  }, []);
 
   useEffect(() => {
     getArticles();
