@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./services/theme";
 import { NatureSection } from "./components/NatureSection/NatureSection";
 import { HeroSection } from "./components/HeroSection/HeroSection";
+import { FooterSection } from "./components/FooterSection/FooterSection";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <HeroSection />
       <PetSection />
       <NatureSection />
+      <FooterSection />
     </ThemeProvider>
   );
 };
