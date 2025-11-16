@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/temperature-project/static/css/main.a6d8fb1a.css",
-    "main.js": "/temperature-project/static/js/main.803f7d42.js",
+    "main.js": "/temperature-project/static/js/main.46f2d635.js",
+    "static/media/natue.jpg": "/temperature-project/static/media/natue.7abb70a858bcbf352b9f.jpg",
     "index.html": "/temperature-project/index.html",
     "main.a6d8fb1a.css.map": "/temperature-project/static/css/main.a6d8fb1a.css.map",
-    "main.803f7d42.js.map": "/temperature-project/static/js/main.803f7d42.js.map"
+    "main.46f2d635.js.map": "/temperature-project/static/js/main.46f2d635.js.map"
   },
   "entrypoints": [
     "static/css/main.a6d8fb1a.css",
-    "static/js/main.803f7d42.js"
+    "static/js/main.46f2d635.js"
   ]
 }
