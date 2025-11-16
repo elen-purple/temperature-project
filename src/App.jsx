@@ -3,11 +3,13 @@ import { GlobalStyle } from "./components/common/GlobalStyle/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./services/theme";
 import { NatureSection } from "./components/NatureSection/NatureSection";
+import { HeroSection } from "./components/HeroSection/HeroSection";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <HeroSection />
       <PetSection />
       <NatureSection />
     </ThemeProvider>

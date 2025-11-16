@@ -4,8 +4,8 @@ import { List } from "./PetsListStyled";
 export const PetsList = ({ articles }) => {
   return (
     <List>
-      {articles.map((article, index) => (
-        <PetsItem key={index} article={article} />
+      {articles.map((article) => (
+        <PetsItem key={article.id} article={article} />
       ))}
     </List>
   );
