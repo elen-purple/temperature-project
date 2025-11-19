@@ -6,6 +6,7 @@ import { Loading } from "../common/Loading/Loading";
 import { PetsButton } from "./PetsButton/PetsButton";
 import { Container } from "../common/Container/Container";
 import { Section, Title } from "./PetsSectionStyled";
+
 const petsApi = axios.create({
   baseURL: "https://content.guardianapis.com",
 });
