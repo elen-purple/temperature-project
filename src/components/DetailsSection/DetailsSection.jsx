@@ -20,7 +20,7 @@ const weatherApi = axios.create({
   baseURL: "http://api.openweathermap.org",
 });
 
-export const DetailsSection = ({ lat, lon, details }) => {
+export const DetailsSection = ({ lat, lon }) => {
   const [weather, setWeather] = useState({});
 
   const getWeather = async () => {
@@ -42,78 +42,72 @@ export const DetailsSection = ({ lat, lon, details }) => {
   }, [lat, lon]);
 
   return (
-    <>
-      {details ? (
-        <Section>
-          <Container>
-            <h2 hidden>Details</h2>
-            <List>
-              <Item>
-                <Wrap>
-                  <Subtitle>Feels like</Subtitle>
-                  <Title>
-                    {weather.main
-                      ? Math.round(weather.main.feels_like * 10) / 10
-                      : ""}
-                    °C
-                  </Title>
-                </Wrap>
-                <CiTempHigh size="40" fill="#16AB3B" />
-              </Item>
-              <Item>
-                <Wrap>
-                  <Subtitle>Min °C</Subtitle>
-                  <Title>
-                    {weather.main
-                      ? Math.round(weather.main.temp_min * 10) / 10
-                      : ""}
-                    °C
-                  </Title>
-                </Wrap>
-                <Wrap>
-                  <Subtitle>Max °C</Subtitle>
-                  <Title>
-                    {weather.main
-                      ? Math.round(weather.main.temp_max * 10) / 10
-                      : ""}
-                    °C
-                  </Title>
-                </Wrap>
-              </Item>
-              <Item>
-                <Wrap>
-                  <Subtitle>Humidity</Subtitle>
-                  <Title>{weather.main ? weather.main.humidity : ""} %</Title>
-                </Wrap>
-                <WiHumidity size="40" fill="#16AB3B" />
-              </Item>
-              <Item>
-                <Wrap>
-                  <Subtitle>Pressure</Subtitle>
-                  <Title>{weather.main ? weather.main.pressure : ""} Pa</Title>
-                </Wrap>
-                <MdOutlineKeyboardDoubleArrowDown size="40" fill="#16AB3B" />
-              </Item>
-              <Item>
-                <Wrap>
-                  <Subtitle>Wind speed</Subtitle>
-                  <Title>{weather.wind ? weather.wind.speed : ""} m/s</Title>
-                </Wrap>
-                <LuWind size="40" stroke="#16AB3B" />
-              </Item>
-              <Item>
-                <Wrap>
-                  <Subtitle>Visibility</Subtitle>
-                  <Title>{weather.visibility}</Title>
-                </Wrap>
-                <FaEye size="40" fill="#16AB3B" />
-              </Item>
-            </List>
-          </Container>
-        </Section>
-      ) : (
-        <></>
-      )}
-    </>
+    <Section>
+      <Container>
+        <h2 hidden>Details</h2>
+        <List>
+          <Item>
+            <Wrap>
+              <Subtitle>Feels like</Subtitle>
+              <Title>
+                {weather.main
+                  ? Math.round(weather.main.feels_like * 10) / 10
+                  : ""}
+                °C
+              </Title>
+            </Wrap>
+            <CiTempHigh size="40" fill="#16AB3B" />
+          </Item>
+          <Item>
+            <Wrap>
+              <Subtitle>Min °C</Subtitle>
+              <Title>
+                {weather.main
+                  ? Math.round(weather.main.temp_min * 10) / 10
+                  : ""}
+                °C
+              </Title>
+            </Wrap>
+            <Wrap>
+              <Subtitle>Max °C</Subtitle>
+              <Title>
+                {weather.main
+                  ? Math.round(weather.main.temp_max * 10) / 10
+                  : ""}
+                °C
+              </Title>
+            </Wrap>
+          </Item>
+          <Item>
+            <Wrap>
+              <Subtitle>Humidity</Subtitle>
+              <Title>{weather.main ? weather.main.humidity : ""} %</Title>
+            </Wrap>
+            <WiHumidity size="40" fill="#16AB3B" />
+          </Item>
+          <Item>
+            <Wrap>
+              <Subtitle>Pressure</Subtitle>
+              <Title>{weather.main ? weather.main.pressure : ""} Pa</Title>
+            </Wrap>
+            <MdOutlineKeyboardDoubleArrowDown size="40" fill="#16AB3B" />
+          </Item>
+          <Item>
+            <Wrap>
+              <Subtitle>Wind speed</Subtitle>
+              <Title>{weather.wind ? weather.wind.speed : ""} m/s</Title>
+            </Wrap>
+            <LuWind size="40" stroke="#16AB3B" />
+          </Item>
+          <Item>
+            <Wrap>
+              <Subtitle>Visibility</Subtitle>
+              <Title>{weather.visibility}</Title>
+            </Wrap>
+            <FaEye size="40" fill="#16AB3B" />
+          </Item>
+        </List>
+      </Container>
+    </Section>
   );
 };

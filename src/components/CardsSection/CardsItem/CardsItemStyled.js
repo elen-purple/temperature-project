@@ -61,6 +61,12 @@ export const Span = styled.span`
   color: ${({ theme }) => theme.colors.accent2};
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+`;
+
 export const Details = styled.a`
   display: block;
   background-color: ${({ theme }) => theme.colors.accent1};

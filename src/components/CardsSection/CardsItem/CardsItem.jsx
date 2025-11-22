@@ -23,6 +23,7 @@ import {
   Temp,
   Time,
   Wrap,
+  Wrapper,
 } from "./CardsItemStyled";
 
 countries.registerLocale(en);
@@ -139,6 +140,10 @@ export const CardsItem = ({ lat, lon }) => {
       <Temp>
         {city.main ? <Span>{Math.round(city.main.temp)}</Span> : <></>}°C
       </Temp>
+      <Wrapper>
+        <Details data-action="hour">Hourly</Details>
+        <Details data-action="week">Weekly</Details>
+      </Wrapper>
       <Details data-action="details">See more</Details>
     </Item>
   );
