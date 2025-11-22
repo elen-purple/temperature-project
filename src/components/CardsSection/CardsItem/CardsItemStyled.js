@@ -54,8 +54,28 @@ export const Temp = styled.p`
   font-size: 32px;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 24px;
 `;
 
 export const Span = styled.span`
   color: ${({ theme }) => theme.colors.accent2};
+`;
+
+export const Details = styled.a`
+  display: block;
+  background-color: ${({ theme }) => theme.colors.accent1};
+  border-radius: 12px;
+  color: ${({ theme }) => theme.colors.text};
+  padding: 8px 16px;
+  font-size: 16px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  width: max-content;
+  width: 100%;
+  text-align: center;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.accent2};
+  }
 `;

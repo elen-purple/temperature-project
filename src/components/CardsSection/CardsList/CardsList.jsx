@@ -9,7 +9,7 @@ const weatherApi = axios.create({
   baseURL: "http://api.openweathermap.org",
 });
 
-export const CardsList = ({ search }) => {
+export const CardsList = ({ search, changeLatLon }) => {
   const [cities, setCities] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
@@ -46,7 +46,7 @@ export const CardsList = ({ search }) => {
       ) : !cities ? (
         <Message text={"There aren't any cities"} />
       ) : (
-        <List>
+        <List onClick={changeLatLon}>
           {cities.map(({ lat, lon }, index) => (
             <CardsItem key={index} lat={lat} lon={lon} />
           ))}

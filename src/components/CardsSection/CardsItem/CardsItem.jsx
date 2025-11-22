@@ -15,6 +15,7 @@ import { BsFillCloudHaze2Fill } from "react-icons/bs";
 
 import {
   Body,
+  Details,
   Header,
   Item,
   Location,
@@ -48,10 +49,8 @@ export const CardsItem = ({ lat, lon }) => {
     getCity();
   }, []);
 
-  console.log(city);
-
   return (
-    <Item>
+    <Item data-lat={lat} data-lon={lon}>
       <Header>
         <Location>{city.name}</Location>
         {city.sys ? (
@@ -140,6 +139,7 @@ export const CardsItem = ({ lat, lon }) => {
       <Temp>
         {city.main ? <Span>{Math.round(city.main.temp)}</Span> : <></>}°C
       </Temp>
+      <Details data-action="details">See more</Details>
     </Item>
   );
 };

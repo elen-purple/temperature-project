@@ -31,6 +31,7 @@ export const GlobalStyle = createGlobalStyle`
   
   a {
     text-decoration-line: none;
+    cursor: pointer;
   }
   
   ul {

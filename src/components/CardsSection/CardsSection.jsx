@@ -4,7 +4,7 @@ import { CardsForm } from "./CardsForm/CardsForm";
 import { CardsList } from "./CardsList/CardsList";
 import { Section } from "./CardsSectionStyled";
 
-export const CardsSection = () => {
+export const CardsSection = ({ changeLatLon }) => {
   const [search, setSearch] = useState("");
 
   const changeSearch = (e) => {
@@ -15,8 +15,9 @@ export const CardsSection = () => {
   return (
     <Section>
       <Container>
+        <h2 hidden>Cards</h2>
         <CardsForm changeSearch={changeSearch} />
-        <CardsList search={search} />
+        <CardsList changeLatLon={changeLatLon} search={search} />
       </Container>
     </Section>
   );
