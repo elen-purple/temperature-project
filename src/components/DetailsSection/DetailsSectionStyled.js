@@ -16,6 +16,10 @@ export const List = styled.ul`
   gap: 20px;
   flex-wrap: wrap;
   border-radius: 20px;
+
+  @media screen and (min-width: 768px) {
+    border-radius: 40px;
+  }
 `;
 
 export const Item = styled.li`

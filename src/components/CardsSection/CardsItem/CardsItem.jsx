@@ -111,7 +111,8 @@ export const CardsItem = ({ lat, lon }) => {
             style={{ margin: "0 auto", display: "block" }}
             size="54"
           />
-        ) : city.weather[0].main === "Mist" ? (
+        ) : city.weather[0].main === "Mist" ||
+          city.weather[0].main === "Fog" ? (
           <MdFoggy
             fill="#a4a4a4ff"
             style={{ margin: "0 auto", display: "block" }}
@@ -132,10 +133,18 @@ export const CardsItem = ({ lat, lon }) => {
             size="54"
           />
         ) : (
-          <FaQuestion />
+          <FaQuestion
+            fill="#2C2C2C"
+            style={{ margin: "0 auto", display: "block" }}
+            size="54"
+          />
         )
       ) : (
-        <FaQuestion />
+        <FaQuestion
+          fill="#2C2C2C"
+          style={{ margin: "0 auto", display: "block" }}
+          size="54"
+        />
       )}
       <Temp>
         {city.main ? <Span>{Math.round(city.main.temp)}</Span> : <></>}°C

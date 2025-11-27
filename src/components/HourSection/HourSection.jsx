@@ -35,7 +35,7 @@ export const HourSection = ({ lat, lon }) => {
   const getCity = async () => {
     try {
       const request = await cityApi.get(
-        `/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=40a99afd57061fd29c9c66b58c5034d3&units=metric`
+        `/data/2.5/forecast?lat=${lat}&cnt=16&lon=${lon}&appid=40a99afd57061fd29c9c66b58c5034d3&units=metric`
       );
       const list = request.data.list;
       const labels = list.map((item) =>

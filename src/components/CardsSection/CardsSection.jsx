@@ -4,11 +4,12 @@ import { CardsForm } from "./CardsForm/CardsForm";
 import { CardsList } from "./CardsList/CardsList";
 import { Section } from "./CardsSectionStyled";
 
-export const CardsSection = ({ changeLatLon }) => {
+export const CardsSection = ({ changeLatLon, resetSection }) => {
   const [search, setSearch] = useState("");
 
   const changeSearch = (e) => {
     e.preventDefault();
+    resetSection();
     setSearch(e.currentTarget.elements.search.value);
   };
 
