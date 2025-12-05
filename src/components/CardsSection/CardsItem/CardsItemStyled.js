@@ -12,6 +12,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 `;
 
 export const Location = styled.div`

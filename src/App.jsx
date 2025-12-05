@@ -10,8 +10,14 @@ import { DetailsSection } from "./components/DetailsSection/DetailsSection";
 import { HourSection } from "./components/HourSection/HourSection";
 import { useState } from "react";
 import { WeekSection } from "./components/WeekSection/WeekSection";
+import { useModal } from "./hooks/useModal";
+import { SignupModal } from "./components/SignupModal/SignupModal";
+import { HeaderSection } from "./components/HeaderSection/HeaderSection";
+import { LoginModal } from "./components/LoginModal/LoginModal";
 
 const App = () => {
+  const [sign, openSign, closeSign] = useModal(false);
+  const [log, openLog, closeLog] = useModal(false);
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
   const [details, setDetails] = useState(false);
@@ -55,6 +61,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <HeaderSection openSign={openSign} openLog={openLog} />
       <HeroSection />
       <CardsSection resetSection={resetSection} changeLatLon={changeLatLon} />
       {details ? <DetailsSection lat={lat} lon={lon} /> : <></>}
@@ -63,6 +70,8 @@ const App = () => {
       <PetSection />
       <NatureSection />
       <FooterSection />
+      <SignupModal sign={sign} closeSign={closeSign} openLog={openLog} />
+      <LoginModal log={log} closeLog={closeLog} openSign={openSign} />
     </ThemeProvider>
   );
 };
