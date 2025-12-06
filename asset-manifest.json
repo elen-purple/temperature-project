@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/temperature-project/static/css/main.a6d8fb1a.css",
-    "main.js": "/temperature-project/static/js/main.cc777742.js",
+    "main.js": "/temperature-project/static/js/main.f61a0eac.js",
     "static/media/natue.jpg": "/temperature-project/static/media/natue.7abb70a858bcbf352b9f.jpg",
     "static/media/logo.svg": "/temperature-project/static/media/logo.b2fe1503d9b499e5abd907ce9d6b9f30.svg",
     "static/media/footer-logo.svg": "/temperature-project/static/media/footer-logo.6e78cace8caab4b020c677da90d1f517.svg",
     "index.html": "/temperature-project/index.html",
     "main.a6d8fb1a.css.map": "/temperature-project/static/css/main.a6d8fb1a.css.map",
-    "main.cc777742.js.map": "/temperature-project/static/js/main.cc777742.js.map"
+    "main.f61a0eac.js.map": "/temperature-project/static/js/main.f61a0eac.js.map"
   },
   "entrypoints": [
     "static/css/main.a6d8fb1a.css",
-    "static/js/main.cc777742.js"
+    "static/js/main.f61a0eac.js"
   ]
 }
