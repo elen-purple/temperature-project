@@ -1,4 +1,21 @@
-- name: Checkout repository
-  uses: actions/checkout@v4
-  with:
-    ssh-key: ${{ secrets.weather }}
+name: Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Клонування репозиторію
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        ssh-key: ${{ secrets.WEATHER_KEY }}
+
+    # 2. Додаткові команди, наприклад, тест підключення до GitHub
+    - name: Test GitHub SSH connection
+      run: |
+        ssh -T git@github.com || echo "Connected to GitHub"
