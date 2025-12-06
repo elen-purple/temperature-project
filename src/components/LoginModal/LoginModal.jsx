@@ -34,7 +34,7 @@ export const LoginModal = ({ log, closeLog, openSign }) => {
         ({ email, password }) => email === emailv && password === passwordv
       );
       if (item) {
-        setItem(item.id);
+        setItem(item.index);
         setError(false);
       } else {
         setError(true);

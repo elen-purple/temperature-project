@@ -44,7 +44,7 @@ export const SignupModal = ({ sign, closeSign, openLog }) => {
       }
       const id = nanoid(4);
       await usersApi.post("/users", {
-        id: null,
+        index: id,
         username: usernamev,
         email: emailv,
         password: passwordv,
