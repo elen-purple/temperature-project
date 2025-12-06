@@ -1,4 +1,4 @@
 - name: Checkout repository
   uses: actions/checkout@v4
   with:
-    ssh-key: ${{ secrets.WEATHER_KEY }}
+    ssh-key: ${{ secrets.weather }}
