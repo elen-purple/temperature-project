@@ -29,7 +29,7 @@ import {
 countries.registerLocale(en);
 
 const cityApi = axios.create({
-  baseURL: "http://api.openweathermap.org",
+  baseURL: "https://api.openweathermap.org",
 });
 
 export const CardsItem = ({ lat, lon }) => {

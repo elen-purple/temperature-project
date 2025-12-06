@@ -26,7 +26,7 @@ ChartJS.register(
 );
 
 const cityApi = axios.create({
-  baseURL: "http://api.openweathermap.org",
+  baseURL: "https://api.openweathermap.org",
 });
 
 export const HourSection = ({ lat, lon }) => {

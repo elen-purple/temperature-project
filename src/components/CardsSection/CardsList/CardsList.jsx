@@ -6,7 +6,7 @@ import { CardsItem } from "../CardsItem/CardsItem";
 import { List } from "./CardsListStyled";
 
 const weatherApi = axios.create({
-  baseURL: "http://api.openweathermap.org",
+  baseURL: "https://api.openweathermap.org",
 });
 
 export const CardsList = ({ search, changeLatLon }) => {

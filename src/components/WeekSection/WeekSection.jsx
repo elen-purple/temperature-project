@@ -5,7 +5,7 @@ import { WeekList } from "./WeekList/WeekList";
 import { Section, Subtitle, Wrap } from "./WeekSectionStyled";
 
 const cityApi = axios.create({
-  baseURL: "http://api.openweathermap.org",
+  baseURL: "https://api.openweathermap.org",
 });
 
 export const WeekSection = ({ lat, lon }) => {
