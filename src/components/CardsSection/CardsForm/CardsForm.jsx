@@ -1,20 +1,40 @@
 import { MdOutlineSearch } from "react-icons/md";
-import { Btn, Form, Input } from "./CardsFormStyled";
+import {
+  Btn,
+  BtnDagger,
+  Form,
+  Incorrect,
+  Input,
+  Wrap,
+} from "./CardsFormStyled";
 import { useState } from "react";
+import { IoClose } from "react-icons/io5";
 
-export const CardsForm = ({ changeSearch, value, setValue }) => {
+export const CardsForm = ({
+  changeSearch,
+  value,
+  setValue,
+  incorrect,
+  resetSearch,
+}) => {
   const [hover, setHover] = useState(false);
   return (
     <Form onSubmit={changeSearch}>
-      <Input
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        type="text"
-        name="search"
-        placeholder="Search location..."
-      />
+      <Wrap>
+        <Input
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          type="text"
+          name="search"
+          placeholder="Search location..."
+        />
+        {incorrect ? <Incorrect>*Please, enter something</Incorrect> : <></>}
+      </Wrap>
+      <BtnDagger onClick={resetSearch} type="reset">
+        <IoClose size="20" fill="#ffffff" />
+      </BtnDagger>
       <Btn
         type="submit"
         onMouseEnter={() => setHover(true)}

@@ -6,10 +6,15 @@ export const Form = styled.form`
   width: 100%;
   justify-content: center;
   margin-bottom: 24px;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
   }
+`;
+
+export const Wrap = styled.div`
+  position: relative;
 `;
 
 export const Input = styled.input`
@@ -29,7 +34,7 @@ export const Input = styled.input`
   }
 
   @media screen and (min-width: 480px) {
-    width: 388px;
+    width: 336px;
   }
 `;
 
@@ -43,4 +48,26 @@ export const Btn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.accent2};
   }
+`;
+
+export const BtnDagger = styled.button`
+  min-width: 40px;
+  height: 40px;
+  background-color: ${({ theme }) => theme.colors.red};
+  border-radius: 12px;
+  line-height: 0;
+
+  &:hover {
+    background-color: #970808ff;
+  }
+`;
+
+export const Incorrect = styled.p`
+  color: ${({ theme }) => theme.colors.red};
+  font-weight: 400;
+  text-align: center;
+  font-size: 14px;
+  position: absolute;
+  left: 8px;
+  top: 40px;
 `;
