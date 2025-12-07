@@ -1,7 +1,7 @@
 export const setItem = (value) => {
-  localStorage.setItem("index", JSON.stringify(value));
+  localStorage.setItem("temperature-project-index", JSON.stringify(value));
 };
 
 export const getItem = () => {
-  return JSON.parse(localStorage.getItem("index"));
+  return JSON.parse(localStorage.getItem("temperature-project-index"));
 };
