@@ -86,3 +86,24 @@ export const Details = styled.a`
     background-color: ${({ theme }) => theme.colors.accent2};
   }
 `;
+
+export const Pros = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+`;
+
+export const Pro = styled.button`
+  background-color: ${({ theme }) => theme.colors.background};
+  line-height: 0;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border: 3px solid ${({ theme }) => theme.colors.accent1};
+
+  &:hover {
+    border: 3px solid ${({ theme }) => theme.colors.accent2};
+  }
+`;

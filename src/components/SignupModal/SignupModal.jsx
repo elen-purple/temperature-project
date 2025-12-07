@@ -20,7 +20,7 @@ const usersApi = axios.create({
   baseURL: "https://692abbee7615a15ff24d828a.mockapi.io/temperature-project",
 });
 
-export const SignupModal = ({ sign, closeSign, openLog }) => {
+export const SignupModal = ({ sign, closeSign, openLog, setUserId }) => {
   const [usernamev, setUsername] = useState("");
   const [emailv, setEmail] = useState("");
   const [passwordv, setPassword] = useState("");
@@ -55,6 +55,7 @@ export const SignupModal = ({ sign, closeSign, openLog }) => {
       setEmail("");
       setPassword("");
       setItem(id);
+      setUserId(id);
     } catch (e) {
       console.log(e);
     }

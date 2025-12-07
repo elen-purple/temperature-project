@@ -31,8 +31,6 @@ export const WeekSection = ({ lat, lon }) => {
     getCity();
   }, [lat, lon]);
 
-  console.log(city);
-
   return (
     <Section>
       <Container>

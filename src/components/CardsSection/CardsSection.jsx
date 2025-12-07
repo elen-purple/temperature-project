@@ -4,8 +4,9 @@ import { CardsForm } from "./CardsForm/CardsForm";
 import { CardsList } from "./CardsList/CardsList";
 import { Section } from "./CardsSectionStyled";
 
-export const CardsSection = ({ changeLatLon, resetSection }) => {
+export const CardsSection = ({ changeLatLon, resetSection, userId }) => {
   const [search, setSearch] = useState("");
+  const [value, setValue] = useState("");
 
   const changeSearch = (e) => {
     e.preventDefault();
@@ -17,8 +18,21 @@ export const CardsSection = ({ changeLatLon, resetSection }) => {
     <Section>
       <Container>
         <h2 hidden>Cards</h2>
-        <CardsForm changeSearch={changeSearch} />
-        <CardsList changeLatLon={changeLatLon} search={search} />
+        <CardsForm
+          search={search}
+          value={value}
+          resetSection
+          setValue={setValue}
+          changeSearch={changeSearch}
+        />
+        <CardsList
+          resetSection={resetSection}
+          userId={userId}
+          setSearch={setSearch}
+          changeLatLon={changeLatLon}
+          search={search}
+          setValue={setValue}
+        />
       </Container>
     </Section>
   );

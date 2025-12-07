@@ -14,6 +14,7 @@ import { useModal } from "./hooks/useModal";
 import { SignupModal } from "./components/SignupModal/SignupModal";
 import { HeaderSection } from "./components/HeaderSection/HeaderSection";
 import { LoginModal } from "./components/LoginModal/LoginModal";
+import { getItem } from "./services/localStorage";
 
 const App = () => {
   const [sign, openSign, closeSign] = useModal(false);
@@ -23,6 +24,7 @@ const App = () => {
   const [details, setDetails] = useState(false);
   const [hour, setHour] = useState(false);
   const [week, setWeek] = useState(false);
+  const [userId, setUserId] = useState(getItem());
 
   const changeSection = (e) => {
     if (e.target.dataset.action === "details") {
@@ -61,17 +63,36 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <HeaderSection openSign={openSign} openLog={openLog} />
+      <HeaderSection
+        userId={userId}
+        setUserId={setUserId}
+        openSign={openSign}
+        openLog={openLog}
+      />
       <HeroSection />
-      <CardsSection resetSection={resetSection} changeLatLon={changeLatLon} />
+      <CardsSection
+        userId={userId}
+        resetSection={resetSection}
+        changeLatLon={changeLatLon}
+      />
       {details ? <DetailsSection lat={lat} lon={lon} /> : <></>}
       {hour ? <HourSection lat={lat} lon={lon} /> : <></>}
       {week ? <WeekSection lat={lat} lon={lon} /> : <></>}
       <PetSection />
       <NatureSection />
       <FooterSection />
-      <SignupModal sign={sign} closeSign={closeSign} openLog={openLog} />
-      <LoginModal log={log} closeLog={closeLog} openSign={openSign} />
+      <SignupModal
+        setUserId={setUserId}
+        sign={sign}
+        closeSign={closeSign}
+        openLog={openLog}
+      />
+      <LoginModal
+        setUserId={setUserId}
+        log={log}
+        closeLog={closeLog}
+        openSign={openSign}
+      />
     </ThemeProvider>
   );
 };

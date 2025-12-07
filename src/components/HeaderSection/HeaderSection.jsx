@@ -3,19 +3,29 @@ import { Container } from "../common/Container/Container";
 import { getItem, setItem } from "../../services/localStorage";
 import logo from "../../icons/logo.svg";
 import axios from "axios";
+import {
+  Button,
+  Greeting,
+  Left,
+  Link,
+  List,
+  Menu,
+  MenuBtn,
+  Right,
+  Section,
+  Span,
+} from "./HeaderSectionStyled";
 
 const usersApi = axios.create({
   baseURL: "https://692abbee7615a15ff24d828a.mockapi.io/temperature-project",
 });
 
-export const HeaderSection = ({ openSign, openLog }) => {
+export const HeaderSection = ({ openSign, openLog, userId, setUserId }) => {
   const [name, setName] = useState(null);
 
   useEffect(() => {
-    const userId = getItem();
     if (!userId) return;
 
-    console.log("a");
     const fetchUser = async () => {
       try {
         const response = await usersApi.get(`/users?index=${userId}`);
@@ -26,52 +36,56 @@ export const HeaderSection = ({ openSign, openLog }) => {
     };
 
     fetchUser();
-  }, [getItem()]);
+  }, [userId]);
 
   return (
-    <header>
+    <Section>
       <Container>
-        <div>
+        <Left>
           <svg width="182.55" height="36">
             <use href={logo}></use>
           </svg>
-          <ul>
+          <List>
             <li>
-              <a href="#">Home</a>
+              <Link href="#">Home</Link>
             </li>
             <li>
-              <a href="#">News</a>
+              <Link href="#">News</Link>
             </li>
             <li>
-              <a href="#">Nature</a>
+              <Link href="#">Nature</Link>
             </li>
-          </ul>
-        </div>
-        <div>
-          {name ? (
-            <>
-              <p>Hello, {name}!</p>
-              <button
-                onClick={() => {
-                  setItem(null);
-                  setName(null);
-                }}
-              >
-                Log out
-              </button>
-            </>
-          ) : (
-            <>
-              <button onClick={openSign} type="button">
-                Sign up
-              </button>
-              <button onClick={openLog} type="button">
-                Log in
-              </button>
-            </>
-          )}
-        </div>
+          </List>
+        </Left>
+        {userId ? (
+          <Right>
+            <Greeting>
+              Hello, <Span>{name}</Span>!
+            </Greeting>
+            <Button
+              onClick={() => {
+                setUserId(null);
+                setItem(null);
+                setName(null);
+              }}
+            >
+              Log out
+            </Button>
+          </Right>
+        ) : (
+          <Right>
+            <Button onClick={openSign} type="button">
+              Sign up
+            </Button>
+            <Button onClick={openLog} type="button">
+              Log in
+            </Button>
+          </Right>
+        )}
+        <Menu>
+          <MenuBtn>Menu</MenuBtn>
+        </Menu>
       </Container>
-    </header>
+    </Section>
   );
 };

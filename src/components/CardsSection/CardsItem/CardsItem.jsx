@@ -12,6 +12,9 @@ import { LuTornado } from "react-icons/lu";
 import { IoIosCloudy } from "react-icons/io";
 import { FaQuestion } from "react-icons/fa6";
 import { BsFillCloudHaze2Fill } from "react-icons/bs";
+import { TbReload } from "react-icons/tb";
+import { FaHeartCirclePlus } from "react-icons/fa6";
+import { FaHeartCircleMinus } from "react-icons/fa6";
 
 import {
   Body,
@@ -19,12 +22,15 @@ import {
   Header,
   Item,
   Location,
+  Pro,
+  Pros,
   Span,
   Temp,
   Time,
   Wrap,
   Wrapper,
 } from "./CardsItemStyled";
+import { getItem } from "../../../services/localStorage";
 
 countries.registerLocale(en);
 
@@ -32,7 +38,7 @@ const cityApi = axios.create({
   baseURL: "https://api.openweathermap.org",
 });
 
-export const CardsItem = ({ lat, lon }) => {
+export const CardsItem = ({ lat, lon, addFavorite, removeFavorite }) => {
   const [city, setCity] = useState({});
 
   const getCity = async () => {
@@ -46,10 +52,24 @@ export const CardsItem = ({ lat, lon }) => {
     }
   };
 
+  const reloadCity = async (e) => {
+    if (e.target.closest("li")) {
+      const item = e.target.closest("li");
+      const lon = item.closest("li").dataset.lon;
+      const lat = item.closest("li").dataset.lat;
+
+      const request = await cityApi.get(
+        `/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=40a99afd57061fd29c9c66b58c5034d3`
+      );
+      setCity(request.data);
+    }
+  };
+
   useEffect(() => {
     getCity();
   }, []);
 
+  const isLogined = getItem() ? true : false;
   return (
     <Item data-lat={lat} data-lon={lon}>
       <Header>
@@ -154,6 +174,21 @@ export const CardsItem = ({ lat, lon }) => {
         <Details data-action="week">Weekly</Details>
       </Wrapper>
       <Details data-action="details">See more</Details>
+      {isLogined ? (
+        <Pros>
+          <Pro onClick={reloadCity}>
+            <TbReload size="20" stroke="#2C2C2C" />
+          </Pro>
+          <Pro onClick={addFavorite}>
+            <FaHeartCirclePlus size="20" fill="#2C2C2C" />
+          </Pro>
+          <Pro onClick={removeFavorite}>
+            <FaHeartCircleMinus size="20" fill="#2C2C2C" />
+          </Pro>
+        </Pros>
+      ) : (
+        <></>
+      )}
     </Item>
   );
 };
