@@ -15,10 +15,12 @@ import { SignupModal } from "./components/SignupModal/SignupModal";
 import { HeaderSection } from "./components/HeaderSection/HeaderSection";
 import { LoginModal } from "./components/LoginModal/LoginModal";
 import { getItem } from "./services/localStorage";
+import { MenuModal } from "./components/MenuModal/MenuModal";
 
 const App = () => {
   const [sign, openSign, closeSign] = useModal(false);
   const [log, openLog, closeLog] = useModal(false);
+  const [menu, openMenu, closeMenu] = useModal(false);
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
   const [details, setDetails] = useState(false);
@@ -64,6 +66,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <HeaderSection
+        menu={menu}
+        openMenu={openMenu}
+        closeMenu={closeMenu}
         userId={userId}
         setUserId={setUserId}
         openSign={openSign}
@@ -92,6 +97,13 @@ const App = () => {
         log={log}
         closeLog={closeLog}
         openSign={openSign}
+      />
+      <MenuModal
+        menu={menu}
+        userId={userId}
+        setUserId={setUserId}
+        openSign={openSign}
+        openLog={openLog}
       />
     </ThemeProvider>
   );

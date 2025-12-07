@@ -20,7 +20,15 @@ const usersApi = axios.create({
   baseURL: "https://692abbee7615a15ff24d828a.mockapi.io/temperature-project",
 });
 
-export const HeaderSection = ({ openSign, openLog, userId, setUserId }) => {
+export const HeaderSection = ({
+  openSign,
+  openLog,
+  userId,
+  setUserId,
+  menu,
+  openMenu,
+  closeMenu,
+}) => {
   const [name, setName] = useState(null);
 
   useEffect(() => {
@@ -83,7 +91,18 @@ export const HeaderSection = ({ openSign, openLog, userId, setUserId }) => {
           </Right>
         )}
         <Menu>
-          <MenuBtn>Menu</MenuBtn>
+          <MenuBtn
+            onClick={() => {
+              if (menu) {
+                closeMenu();
+              } else {
+                openMenu();
+              }
+            }}
+            $menu={menu}
+          >
+            Menu
+          </MenuBtn>
         </Menu>
       </Container>
     </Section>

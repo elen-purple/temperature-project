@@ -6,6 +6,13 @@ export const Section = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: 390px) {
+      flex-direction: row;
+      gap: 0;
+    }
   }
 `;
 
@@ -21,7 +28,6 @@ export const Left = styled.div`
 
 export const List = styled.ul`
   display: none;
-  font-size: 18px;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -35,6 +41,7 @@ export const List = styled.ul`
 
 export const Link = styled.a`
   color: ${({ theme }) => theme.colors.text};
+  font-size: 18px;
 
   &:hover {
     color: ${({ theme }) => theme.colors.accent1};
@@ -86,7 +93,10 @@ export const Menu = styled.div`
 export const MenuBtn = styled.button`
   border: 3px solid ${({ theme }) => theme.colors.accent1};
   display: block;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ $menu }) =>
+    $menu
+      ? ({ theme }) => theme.colors.accent1
+      : ({ theme }) => theme.colors.background};
   border-radius: 12px;
   color: ${({ theme }) => theme.colors.text};
   padding: 8px 16px;
