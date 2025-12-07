@@ -41,7 +41,7 @@ export const PetSection = () => {
   }, [page]);
 
   return (
-    <Section>
+    <Section id="news">
       <Container>
         <Title>Interacting with our pets</Title>
         {isLoading ? (

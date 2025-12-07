@@ -25,17 +25,17 @@ export const FooterSection = () => {
           <Title>Contact us</Title>
           <List>
             <li>
-              <a href="">
+              <a href="https://www.instagram.com/" target="_blank">
                 <FiInstagram size="32" stroke="#ffffff" />
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="https://www.facebook.com/?locale=uk_UA" target="_blank">
                 <MdFacebook size="32" fill="#ffffff" />
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="https://x.com/?lang=uk" target="_blank">
                 <FaTwitter size="32" fill="#ffffff" />
               </a>
             </li>

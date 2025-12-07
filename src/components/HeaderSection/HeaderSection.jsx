@@ -58,10 +58,10 @@ export const HeaderSection = ({
               <Link href="#">Home</Link>
             </li>
             <li>
-              <Link href="#">News</Link>
+              <Link href="#news">News</Link>
             </li>
             <li>
-              <Link href="#">Nature</Link>
+              <Link href="#nature">Nature</Link>
             </li>
           </List>
         </Left>

@@ -16,9 +16,11 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.accent1};
     color: ${({ theme }) => theme.colors.text};
   }
-  
-  body {
+  html{
     scroll-behavior: smooth;
+    }
+
+  body {
   font-family: "Montserrat", sans-serif;
   }
   
