@@ -6,6 +6,9 @@ export const Item = styled.li`
   background-color: ${({ theme }) => theme.colors.background};
   border-radius: 20px;
   padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const Header = styled.div`

@@ -72,123 +72,130 @@ export const CardsItem = ({ lat, lon, addFavorite, removeFavorite }) => {
   const isLogined = getItem() ? true : false;
   return (
     <Item data-lat={lat} data-lon={lon}>
-      <Header>
-        <Location>{city.name}</Location>
-        {city.sys ? (
-          <Location>{countries.getName(city.sys.country, "en")}</Location>
-        ) : (
-          <></>
-        )}
-      </Header>
-      <Time>
-        {(
-          new Date(Date.now() + city.timezone * 1000).getUTCHours() + ""
-        ).padStart(2, "0")}
-        :
-        {(
-          new Date(Date.now() + city.timezone * 1000).getUTCMinutes() + ""
-        ).padStart(2, "0")}
-      </Time>
-      <Body>
-        <Wrap>
-          <p>
-            {new Date().getDate()}.{new Date().getMonth() + 1}.
-            {new Date().getFullYear()}
-          </p>
-        </Wrap>
-        <Wrap>
-          <p> {new Date().toLocaleString("en-US", { weekday: "long" })}</p>
-        </Wrap>
-      </Body>
-      {city.weather ? (
-        city.weather[0].main === "Thunderstorm" ? (
-          <IoIosThunderstorm
-            fill="#282446ff"
-            style={{ margin: "0 auto", display: "block" }}
-            size="54"
-          />
-        ) : city.weather[0].main === "Drizzle" ? (
-          <BsCloudDrizzleFill
-            fill="#8387afff"
-            style={{ margin: "0 auto", display: "block" }}
-            size="54"
-          />
-        ) : city.weather[0].main === "Rain" ? (
-          <IoIosRainy
-            fill="#5461a9ff"
-            style={{ margin: "0 auto", display: "block" }}
-            size="54"
-          />
-        ) : city.weather[0].main === "Snow" ? (
-          <IoIosSnow
-            fill="#cececeff"
-            style={{ margin: "0 auto", display: "block" }}
-            size="54"
-          />
-        ) : city.weather[0].main === "Clouds" ? (
-          <IoIosCloudy
-            fill="#bcbcbcff"
-            style={{ margin: "0 auto", display: "block" }}
-            size="54"
-          />
-        ) : city.weather[0].main === "Mist" ||
-          city.weather[0].main === "Fog" ? (
-          <MdFoggy
-            fill="#a4a4a4ff"
-            style={{ margin: "0 auto", display: "block" }}
-            size="54"
-          />
-        ) : city.weather[0].main === "Clear" ? (
-          <IoIosSunny
-            fill="#ffcc00ff"
-            style={{ margin: "0 auto", display: "block" }}
-            size="54"
-          />
-        ) : city.weather[0].main === "Extreme" ? (
-          <LuTornado style={{ margin: "0 auto", display: "block" }} size="54" />
-        ) : city.weather[0].main === "Haze" ? (
-          <BsFillCloudHaze2Fill
-            fill="#888073ff"
-            style={{ margin: "0 auto", display: "block" }}
-            size="54"
-          />
+      <div>
+        <Header>
+          <Location>{city.name}</Location>
+          {city.sys ? (
+            <Location>{countries.getName(city.sys.country, "en")}</Location>
+          ) : (
+            <></>
+          )}
+        </Header>
+        <Time>
+          {(
+            new Date(Date.now() + city.timezone * 1000).getUTCHours() + ""
+          ).padStart(2, "0")}
+          :
+          {(
+            new Date(Date.now() + city.timezone * 1000).getUTCMinutes() + ""
+          ).padStart(2, "0")}
+        </Time>
+        <Body>
+          <Wrap>
+            <p>
+              {new Date().getDate()}.{new Date().getMonth() + 1}.
+              {new Date().getFullYear()}
+            </p>
+          </Wrap>
+          <Wrap>
+            <p> {new Date().toLocaleString("en-US", { weekday: "long" })}</p>
+          </Wrap>
+        </Body>
+        {city.weather ? (
+          city.weather[0].main === "Thunderstorm" ? (
+            <IoIosThunderstorm
+              fill="#282446ff"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : city.weather[0].main === "Drizzle" ? (
+            <BsCloudDrizzleFill
+              fill="#8387afff"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : city.weather[0].main === "Rain" ? (
+            <IoIosRainy
+              fill="#5461a9ff"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : city.weather[0].main === "Snow" ? (
+            <IoIosSnow
+              fill="#cececeff"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : city.weather[0].main === "Clouds" ? (
+            <IoIosCloudy
+              fill="#bcbcbcff"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : city.weather[0].main === "Mist" ||
+            city.weather[0].main === "Fog" ? (
+            <MdFoggy
+              fill="#a4a4a4ff"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : city.weather[0].main === "Clear" ? (
+            <IoIosSunny
+              fill="#ffcc00ff"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : city.weather[0].main === "Extreme" ? (
+            <LuTornado
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : city.weather[0].main === "Haze" ? (
+            <BsFillCloudHaze2Fill
+              fill="#888073ff"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          ) : (
+            <FaQuestion
+              fill="#2C2C2C"
+              style={{ margin: "0 auto", display: "block" }}
+              size="54"
+            />
+          )
         ) : (
           <FaQuestion
             fill="#2C2C2C"
             style={{ margin: "0 auto", display: "block" }}
             size="54"
           />
-        )
-      ) : (
-        <FaQuestion
-          fill="#2C2C2C"
-          style={{ margin: "0 auto", display: "block" }}
-          size="54"
-        />
-      )}
-      <Temp>
-        {city.main ? <Span>{Math.round(city.main.temp)}</Span> : <></>}°C
-      </Temp>
-      <Wrapper>
-        <Details data-action="hour">Hourly</Details>
-        <Details data-action="week">Weekly</Details>
-      </Wrapper>
-      <Details data-action="details">See more</Details>
-      {isLogined ? (
-        <Pros>
-          <Pro onClick={reloadCity}>
-            <TbReload size="20" stroke="#2C2C2C" />
-          </Pro>
-          <Pro onClick={addFavorite}>
-            <FaHeartCirclePlus size="20" fill="#2C2C2C" />
-          </Pro>
-          <Pro onClick={removeFavorite}>
-            <FaHeartCircleMinus size="20" fill="#2C2C2C" />
-          </Pro>
-        </Pros>
-      ) : (
-        <></>
-      )}
+        )}
+        <Temp>
+          {city.main ? <Span>{Math.round(city.main.temp)}</Span> : <></>}°C
+        </Temp>
+      </div>
+      <div>
+        <Wrapper>
+          <Details data-action="hour">Hourly</Details>
+          <Details data-action="week">Weekly</Details>
+        </Wrapper>
+        <Details data-action="details">See more</Details>
+        {isLogined ? (
+          <Pros>
+            <Pro onClick={reloadCity}>
+              <TbReload size="20" stroke="#2C2C2C" />
+            </Pro>
+            <Pro onClick={addFavorite}>
+              <FaHeartCirclePlus size="20" fill="#2C2C2C" />
+            </Pro>
+            <Pro onClick={removeFavorite}>
+              <FaHeartCircleMinus size="20" fill="#2C2C2C" />
+            </Pro>
+          </Pros>
+        ) : (
+          <></>
+        )}
+      </div>
     </Item>
   );
 };

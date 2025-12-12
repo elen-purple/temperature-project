@@ -16,6 +16,7 @@ import { HeaderSection } from "./components/HeaderSection/HeaderSection";
 import { LoginModal } from "./components/LoginModal/LoginModal";
 import { getItem } from "./services/localStorage";
 import { MenuModal } from "./components/MenuModal/MenuModal";
+import { SrollModal } from "./components/SrollModal/SrollModal";
 
 const App = () => {
   const [sign, openSign, closeSign] = useModal(false);
@@ -105,6 +106,7 @@ const App = () => {
         openSign={openSign}
         openLog={openLog}
       />
+      <SrollModal />
     </ThemeProvider>
   );
 };
